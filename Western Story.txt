@@ -1,0 +1,36 @@
+Children's Western Story
+4 Slides
+3 Decisions, 1 conclusion
+
+Slide 1
+"Welcome to the West!" cried Harry, as he comes to lead your horse into town. 
+You'll be staying at the Ol' corral there.
+Would you like to pay a little extra to stable your horse?
+It'll give her a nice roof and some quality hay.
+
+Pay to stable your horse or keep it outside?
+Stable Outside
+
+Slide 2
+You slide into a booth at the local restaurant and order some food.
+A sleek man with a large moustache and monacle, all dressed in black wants to speak with you.
+He asks if you would like to be rich beyond your wildest dreams.
+All you need to do is give him all the money you have and he will give you the keys to a gold mine.
+
+Do you give the man all your money?
+Yes No
+
+Slide 3
+You awake in the night to the sound of shouting from the window. 
+You throw open the shutters to see someone being thrown on the back of a horse by a masked bandit.
+You could maybe save them if you act fast!
+Then again, it could put you in a lot of danger.
+
+What do you do?
+Chase them
+Go back to bed
+
+Slide 4 - Conclusion
+Horses, gold, and bandits - some days in the West are full of difficult choices!
+But you made it through either way.
+It looks like you were a [Good, Bad] citizen today.
