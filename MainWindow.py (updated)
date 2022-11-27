@@ -1,0 +1,33 @@
+from tkinter import *
+from tkinter import filedialog
+import os
+
+# Create main window #
+root = Tk()
+root.geometry('900x700')
+root.resizable(0,0)
+root.title('Adventure Time!')
+
+# Title #
+Label1 = Label(root, text="Choose Your Own Adventure!", font=('Times_New_Roman', 18))
+Label1.pack()
+
+# Create text box
+my_textfield= Text(root, width=110, height=30, bg = "blue")
+my_textfield.pack(pady=20)
+
+# Actions for buttons results #
+def open():
+    my_program = filedialog.askopenfilename()
+    os.system('"%s"' % my_program)
+# Try changing this to C:file
+
+#create an start button
+B1 = Button(root, text= "               Start              ", command=open)
+B1.place(x=380, y=555)
+
+#create an exit button
+exit_button = Button(root, text = "               Exit               ", command=lambda: root.quit())
+exit_button.place(x=380, y=590)
+
+root.mainloop()
