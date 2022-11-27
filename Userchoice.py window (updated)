@@ -1,0 +1,35 @@
+from tkinter import *
+
+# Create main window #
+root = Tk()
+root.geometry('900x700')
+root.resizable(0,0)
+root.title('Adventure Time!')
+
+# Title #
+Label1 = Label(root, text="Choose Your Own Adventure Time")
+Label1.pack()
+
+# Frame to input and navigate stories #
+my_textfield= Text(root, width=110, height=30)
+my_textfield.pack(pady=20)
+
+# Actions for buttons results #
+def myClick():
+    Label3 = Label(Frame, text= "Testing that buttons work.")
+    Label3.pack()
+
+
+B1 = Button(root, text= "Choice 1", command=myClick)
+B1.place(x=250, y=550)
+
+B2 = Button(root, text= "Choice 2", command=myClick)
+B2.place(x=250, y=600)
+
+B3 = Button(root, text= "Choice 3", command=myClick)
+B3.place(x=650, y=550)
+
+B4 = Button(root, text= "Choice 4", command=myClick)
+B4.place(x=650, y=600)
+
+root.mainloop()
