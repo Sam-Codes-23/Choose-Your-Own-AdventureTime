@@ -1,0 +1,63 @@
+# Test adventure
+
+name = input("Please enter your name! ")
+print(f'Greetings {name}! Welcome to your Choose your own adventure!')
+start = input("Would you like to begin your journey? ")
+if start == 'yes':
+    print("Awesome let's play!")
+    setting = input("Would you like to play as an Astronaut, Wizard or Cowboy? ")
+
+else:
+    print("Fine! Have it your way... ")
+    quit()
+
+if setting == 'Astronaut':
+    print(f'Greetings {name}! You are an Astronaut and have taken up the job of searching for the reason why the land has plunged into darkness and the missing King. You are walking along a road  through the forest and come across an old man by a fire. He looks sick and hungry, but also mysterious. You are tempted to help, but then you realize that you do not know him. "')
+    response = input("Should you help him? ")
+    if response == "yes":
+        print("You helped the old man and he joins you on your journey. There is a fork in the forest path and you have to choose which way you should go. The path to the left seems dark and haunted. The path to the right has spots of sunshine from the treetops." )
+    elif response == "no":
+        print("You leave the old man behind and continue your journey. There is a fork in the forest path and you have to choose which way you should go. The path to the left seems dark and haunted. The path to the right has spots of sunshine from the treetops. Which path do you decide to take?" )
+    else: 
+        print("Invalid Response you Lose! =( ")
+        quit()
+    response = input("Which path do you decide to take? ") 
+    if response == "right":
+        print("You find a castle")
+    elif response == "left":
+        print("You find a House!")
+    else: 
+        print("Invalid Response you Lose! =( ")
+        quit()        
+        
+        
+if setting == 'Wizard':
+    print(f'Greetings {name}! You are an Wizard and have taken up the job of searching for the reason why the land has plunged into darkness and the missing King. You are walking along a road through the forest and come across an old man by a fire. He looks sick and hungry, but also mysterious. You are tempted to help, but then you realize that you do not know him. Should you help him? "')
+
+
+if setting == 'Cowboy':
+    print(f'Welcome to the West {name}! cried Harry, as he comes to lead your horse into town. Youll be staying at the Ol corral there. Would you like to pay a little extra to stable your horse? I will give her a nice roof and some quality hay? ') 
+    response = input("Would you like to pay to stable your horse or keep it outside? ")
+    if response == "Pay":
+        print("Your horse is feed well and has a wonderful night. You slide into a booth at the local restaurant and order some food. A sleek man with a large moustache and monacle, all dressed in black wants to speak with you.He asks if you would like to be rich beyond your wildest dreams. All you need to do is give him all the money you have and he will give you the keys to a gold mine." )
+    elif response == "Dont pay":
+        print("Your horse is left outside of the stable. You slide into a booth at the local restaurant and order some food. A sleek man with a large moustache and monacle, all dressed in black wants to speak with you.He asks if you would like to be rich beyond your wildest dreams. All you need to do is give him all the money you have and he will give you the keys to a gold mine." )
+    else: 
+        print("Invalid Response you Lose! =( ")
+        quit()
+    response = input("Do you give the man all your money? ") 
+    if response == "yes":
+        print("You gave him all your money, the man thanks you and runs off to make you both rich, but you realize you never got his name! you have not money to eat your dinner" )
+    elif response == "no":
+        print("You keep your money and save it for your journey. You awake in the night to the sound of shouting from the window. You throw open the shutters to see someone being thrown on the back of a horse by a masked bandit. You could maybe save them if you act fast! Then again, it could put you in a lot of danger.")
+    else: 
+        print("Invalid Response you Lose! =( ")
+        quit()        
+    response = input("What do you do? Chase them? or go back to bed? ") 
+    if response == "chase them":
+        print("You grab your gear and dash out of your room. You ride your horse in an epic chase to save this mysterious person." )
+    elif response == "go back to bed":
+        print("You decided to mind your own business today is not the day to be a hero.")
+    else: 
+        print("Invalid Response you Lose! =( ")
+        quit()
