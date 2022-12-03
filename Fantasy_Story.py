@@ -23,6 +23,8 @@ l.config(font = ("Courier", 14))
 img = Image.open('camp_fire1.jpg')
 img_resize = img.resize((500, 400), Image.ANTIALIAS)
 tkimage = ImageTk.PhotoImage(img_resize)
+
+#creating a canvas window in the main window to display and set locations of widgets
 canvas = tk.Canvas(win, width = 800, height = 500)
 canvas.pack()
 canvas.create_image((400,250), image=tkimage, tag = "campfire")
@@ -43,22 +45,25 @@ img4 = Image.open('dragon.jpg')
 img4_resize = img4.resize((700,400), Image.ANTIALIAS)
 tkimage4 = ImageTk.PhotoImage(img4_resize)
 
+#forest function that will replace campfire image with forest image within the canvas window
 def forest():
     canvas.create_image((400,250), image=tkimage2, tag = "forest")
     canvas.itemconfig("campfire", image=tkimage2)
 
 
+#rock wall function that will replace campfire image with rock image within the canvas window
 def rock_wall():
     canvas.create_image((400,250), image=tkimage3, tag = "rock")
     canvas.itemconfig("forest", image=tkimage3)
 
+#dragon function that will replace rock wall image with dragon image within the canvas window
 def dragon():
     canvas.create_image((400,250), image=tkimage4, tag = "dragon")
     canvas.itemconfig("rock", image=tkimage4)
 
-#Fantasy Story Slides
+#creating the text widget to display story - wrap set to word will eliminate word cutoffs
 T = Text(win, height = 12, width = 100, wrap=WORD)
-T.place(x=0, y=0)
+T.place(x=0, y=0) #this places the text widget in the window
 
 Fantasy_1_Story = "You are an adventurer and have taken up the job of searching for the reason why the land has plunged into darkness and the missing King. You are walking along a road through the forest and come across an old man by a fire. He looks sick and hungry, but also mysterious. You are tempted to help, but then you realize that you do not know him. Should you help him? "
 Fantasy_2_Story = "You leave the old man behind and continue your journey. There is a fork in the forest path and you have to choose which way you should go. The path to the left seems dark and haunted. The path to the right has spots of sunshine from the treetops. Which path do you decide to take?"
@@ -71,17 +76,17 @@ def Option_1 ():
     forest()
     T.delete("1.0", END)
     Next_Line = Fantasy_2_Story
-    global Fantasy_Choice
+    global Fantasy_Choice #this specifies that the function is changing the global variable and not creating a local variable
     Fantasy_Choice = 1
-    b1.after(1, b1.destroy)
+    b1.after(1, b1.destroy) #destroys button
     b2.after(1, b2.destroy)
-    global b3 
+    global b3  #creates a global variable to be accessed in other functions
     b3 = Button(win, text = "You decide to plunge deeper into the darkness and take the path to the left.", command=Option_3)
     global b4 
     b4 = Button(win, text = "The sunshine is too tempting to pass up, so you decide to go right.", command = Option_3)
-    b3.pack()
+    b3.pack() #adds button to the screen
     b4.pack()
-    T.insert(tk.END, Next_Line)
+    T.insert(tk.END, Next_Line) #inserts the next line to the Text widget
    
 
 def Option_2 ():
