@@ -62,10 +62,10 @@ def dragon():
     canvas.itemconfig("rock", image=tkimage4)
 
 #creating the text widget to display story - wrap set to word will eliminate word cutoffs
-T = Text(win, height = 12, width = 100, wrap=WORD)
+T = Text(win, height = 12, width = 100, wrap=WORD,)
 T.place(x=0, y=0) #this places the text widget in the window
 
-Fantasy_1_Story = "You are an adventurer and have taken up the job of searching for the reason why the land has plunged into darkness and the missing King. You are walking along a road through the forest and come across an old man by a fire. He looks sick and hungry, but also mysterious. You are tempted to help, but then you realize that you do not know him. Should you help him? "
+Fantasy_1_Story = "You are an adventurer and have taken up the job of searching for the reason why the land has plunged into darkness and to find the missing King. You are walking along a road through the forest and come across an old man by a fire. He looks sick and hungry, but also mysterious. You are tempted to help, but then you realize that you do not know him. Should you help him? "
 Fantasy_2_Story = "You leave the old man behind and continue your journey. There is a fork in the forest path and you have to choose which way you should go. The path to the left seems dark and haunted. The path to the right has spots of sunshine from the treetops. Which path do you decide to take?"
 Fantasy_3_Story = "The path is a dead end at an abandoned cabin. You happen to spot an opening in the rock wall behind the cabin and you squeeze through it. This path takes you to the castle with the dragon. Should you risk going in the entrance or sneak your way in from the side?"
 Fantasy_Good = "The old man you saved suddenly appears besides you and reveals he is a powerful wizard. The wizard says the entrance is barred, but he can teleport you inside. He also give you a magical protection stone to help you against the darkness. Once inside the dragon starts to attack, but senses the magical protection stone the wizard gave you. As the dragon is distracted, the wizard casts a powerful spell, which turns the dragon back into the missing King! The King thanks you and returns to the Castle and a big celebration feast is enjoyed by the entire Kingdom!"
@@ -73,6 +73,7 @@ Fantasy_Bad = "You enter the castle and find the dragon waiting in the courtyard
 Fantasy_Choice = 0
 
 def Option_1 ():
+    T.config(state='normal')
     forest()
     T.delete("1.0", END)
     Next_Line = Fantasy_2_Story
@@ -87,9 +88,11 @@ def Option_1 ():
     b3.pack() #adds button to the screen
     b4.pack()
     T.insert(tk.END, Next_Line) #inserts the next line to the Text widget
+    T.config(state='disabled')
    
 
 def Option_2 ():
+    T.config(state='normal')
     forest()
     T.delete("1.0", END)
     Next_Line = Fantasy_2_Story
@@ -104,8 +107,10 @@ def Option_2 ():
     b3.pack()
     b4.pack()
     T.insert(tk.END, Next_Line)
+    T.config(state='disabled')
 
 def Option_3 ():
+    T.config(state='normal')
     rock_wall()
     T.delete("1.0", END)
     Next_Line = Fantasy_3_Story
@@ -118,8 +123,10 @@ def Option_3 ():
     b5.pack()
     b6.pack()
     T.insert(tk.END, Next_Line)
+    T.config(state='disabled')
 
 def Option_4():
+    T.config(state='normal')
     dragon()
     T.delete("1.0", END)
     if Fantasy_Choice == 1:
@@ -129,6 +136,7 @@ def Option_4():
     b5.after(1, b5.destroy)
     b6.after(1, b6.destroy)
     T.insert(tk.END, Next_Line)
+    T.config(state='disabled')
 
 
 
@@ -141,6 +149,7 @@ b1.pack()
 b2.pack()
 
 T.insert(tk.END, Fantasy_1_Story)
+T.config(state='disabled') #sets text widget to read only
 
 
 #keeps window displaying
