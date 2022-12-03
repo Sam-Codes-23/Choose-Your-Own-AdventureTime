@@ -1,6 +1,7 @@
 ## -*- coding: utf-8 -*-
 import tkinter as tk
 from tkinter import *
+from PIL import Image, ImageTk
 
 
 
@@ -9,27 +10,69 @@ win = Tk()
 
 
 
+
 #size of window
 win.geometry("1200x800")
+
 
 #window title
 l = Label(win, text = "Choose Your Own AdventureTime")
 l.config(font = ("Courier", 14))
 
+#create photoimage of campfire
+img = Image.open('camp_fire1.jpg')
+img_resize = img.resize((500, 400), Image.ANTIALIAS)
+tkimage = ImageTk.PhotoImage(img_resize)
+canvas = tk.Canvas(win, width = 800, height = 500)
+canvas.pack()
+canvas.create_image((400,250), image=tkimage, tag = "campfire")
+
+#create photoimage of forest
+img2 = Image.open('Forest.jpg')
+img2_resize = img2.resize((500, 400), Image.ANTIALIAS)
+tkimage2 = ImageTk.PhotoImage(img2_resize)
+
+
+#create photoimage of rock wall
+img3 = Image.open('rock_wall.jpg')
+img3_resize = img3.resize((500,400), Image.ANTIALIAS)
+tkimage3 = ImageTk.PhotoImage(img3_resize)
+
+#create photoimage of dragon defeated
+img4 = Image.open('dragon.jpg')
+img4_resize = img4.resize((700,400), Image.ANTIALIAS)
+tkimage4 = ImageTk.PhotoImage(img4_resize)
+
+def forest():
+    canvas.create_image((400,250), image=tkimage2, tag = "forest")
+    canvas.itemconfig("campfire", image=tkimage2)
+
+
+def rock_wall():
+    canvas.create_image((400,250), image=tkimage3, tag = "rock")
+    canvas.itemconfig("forest", image=tkimage3)
+
+def dragon():
+    canvas.create_image((400,250), image=tkimage4, tag = "dragon")
+    canvas.itemconfig("rock", image=tkimage4)
+
 #Fantasy Story Slides
-T = Text(win, height = 12, width = 100)
+T = Text(win, height = 12, width = 100, wrap=WORD)
+T.place(x=0, y=0)
 
 Fantasy_1_Story = "You are an adventurer and have taken up the job of searching for the reason why the land has plunged into darkness and the missing King. You are walking along a road through the forest and come across an old man by a fire. He looks sick and hungry, but also mysterious. You are tempted to help, but then you realize that you do not know him. Should you help him? "
 Fantasy_2_Story = "You leave the old man behind and continue your journey. There is a fork in the forest path and you have to choose which way you should go. The path to the left seems dark and haunted. The path to the right has spots of sunshine from the treetops. Which path do you decide to take?"
 Fantasy_3_Story = "The path is a dead end at an abandoned cabin. You happen to spot an opening in the rock wall behind the cabin and you squeeze through it. This path takes you to the castle with the dragon. Should you risk going in the entrance or sneak your way in from the side?"
 Fantasy_Good = "The old man you saved suddenly appears besides you and reveals he is a powerful wizard. The wizard says the entrance is barred, but he can teleport you inside. He also give you a magical protection stone to help you against the darkness. Once inside the dragon starts to attack, but senses the magical protection stone the wizard gave you. As the dragon is distracted, the wizard casts a powerful spell, which turns the dragon back into the missing King! The King thanks you and returns to the Castle and a big celebration feast is enjoyed by the entire Kingdom!"
 Fantasy_Bad = "You enter the castle and find the dragon waiting in the courtyard. You are able to banish the dragon, which lifts the darkness from the realm, but you are unable to find the missing King anywhere. You return to the castle and live out your days as a simple blacksmith as there are no adventures without the King."
-Fantasy_Choice = TRUE
+Fantasy_Choice = 0
 
 def Option_1 ():
+    forest()
     T.delete("1.0", END)
     Next_Line = Fantasy_2_Story
-    Fantasy_Choice = TRUE
+    global Fantasy_Choice
+    Fantasy_Choice = 1
     b1.after(1, b1.destroy)
     b2.after(1, b2.destroy)
     global b3 
@@ -39,11 +82,14 @@ def Option_1 ():
     b3.pack()
     b4.pack()
     T.insert(tk.END, Next_Line)
+   
 
 def Option_2 ():
+    forest()
     T.delete("1.0", END)
     Next_Line = Fantasy_2_Story
-    Fantasy_Choice = FALSE
+    global Fantasy_Choice 
+    Fantasy_Choice = 2
     b1.after(1, b1.destroy)
     b2.after(1, b2.destroy)
     global b3 
@@ -55,6 +101,7 @@ def Option_2 ():
     T.insert(tk.END, Next_Line)
 
 def Option_3 ():
+    rock_wall()
     T.delete("1.0", END)
     Next_Line = Fantasy_3_Story
     b3.after(1, b3.destroy)
@@ -68,10 +115,11 @@ def Option_3 ():
     T.insert(tk.END, Next_Line)
 
 def Option_4():
+    dragon()
     T.delete("1.0", END)
-    if Fantasy_Choice == TRUE:
+    if Fantasy_Choice == 1:
         Next_Line = Fantasy_Good
-    else:
+    if Fantasy_Choice == 2:
         Next_Line = Fantasy_Bad
     b5.after(1, b5.destroy)
     b6.after(1, b6.destroy)
@@ -92,6 +140,3 @@ T.insert(tk.END, Fantasy_1_Story)
 
 #keeps window displaying
 win.mainloop()
-
-def test_function() :
-    print("hello")
