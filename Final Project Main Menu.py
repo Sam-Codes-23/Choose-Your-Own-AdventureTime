@@ -23,6 +23,16 @@ mainmenu_path = "mainmenu.jpg"
 def close():
     root.destroy()
 
+#Function to run fantasy story
+def runFantasy():
+    root.destroy() #must close window in order to run new story
+    runpy.run_path(path_name='Fantasy_Story.py')
+
+#Function to run scifi story
+def runScifi():
+    root.destroy()
+    runpy.run_path(path_name = 'SciFi_Story.py')
+
 #Astronaut Image Import
 astro_image_pre = Image.open(astro_path)
 resize_image = astro_image_pre.resize((150,300))
@@ -51,15 +61,10 @@ img4 = ImageTk.PhotoImage(resize_image4)
 mainmenu_image_final = Label(image = img4)
 mainmenu_image_final.place(x = 0, y = 0)
 
-#Function to run fantasy story
-def runFantasy():
-    root.destroy() #must close window in order to run new story
-    runpy.run_path(path_name='Fantasy_Story.py')
-
 #Character Selection Buttons
 cBoy = Button(root, text = "Cowboy",  height=8, width = 50, bg = '#ffca18')
 wizard = Button(root, text = "Wizard", height = 8, width = 50, bg = '#d31212', command=runFantasy)
-astro = Button(root, text = "Astronaut", height = 8, width = 50, bg = '#ffca18')
+astro = Button(root, text = "Astronaut", height = 8, width = 50, bg = '#ffca18', command = runScifi())
 exit_to_dt = Button(root, text = "Quit to Desktop", height = 5, width = 25, bg = '#00a8f3', command = close)
 
 cBoy.place(x = 25, y = 750)
