@@ -1,4 +1,7 @@
 
+import runpy
 
-execfile('Game Window.py')
+runpy.run_path(path_name='Fantasy_Story.py')
+
+
 
