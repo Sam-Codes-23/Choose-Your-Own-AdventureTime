@@ -12,7 +12,15 @@ win = Tk()
 
 
 #size of window
-win.geometry("1200x800")
+
+app_width = 1280
+app_height = 1024
+screen_width = win.winfo_screenwidth()
+screen_height = win.winfo_screenheight()
+x = (screen_width / 2) - (app_width / 2)
+y = (screen_height / 2) - (app_height / 2)
+win.geometry(f'{app_width}x{app_height}+{int(x)}+{int(y)}')
+win.configure(background='light blue')
 
 
 #window title
