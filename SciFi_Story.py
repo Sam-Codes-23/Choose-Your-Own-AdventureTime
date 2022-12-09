@@ -32,7 +32,7 @@ canvas.pack()
 canvas.create_image((400,250), image=tkimage, tag = "forest")
 
 #create photoimage of forest
-img2 = Image.open('forest_hole.jpg')
+img2 = Image.open('forest hole.jpg')
 img2_resize = img2.resize((500, 400), Image.ANTIALIAS)
 tkimage2 = ImageTk.PhotoImage(img2_resize)
 
