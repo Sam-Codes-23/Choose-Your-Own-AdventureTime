@@ -22,46 +22,46 @@ l = Label(win, text = "Choose Your Own AdventureTime")
 l.config(font = ("Courier", 14))
 
 #create photoimage of campfire
-img = Image.open('camp_fire1.jpg')
+img = Image.open('scifi_forest.jpg')
 img_resize = img.resize((500, 400), Image.ANTIALIAS)
 tkimage = ImageTk.PhotoImage(img_resize)
 
 #creating a canvas window in the main window to display and set locations of widgets
 canvas = tk.Canvas(win, width = 800, height = 500)
 canvas.pack()
-canvas.create_image((400,250), image=tkimage, tag = "campfire")
+canvas.create_image((400,250), image=tkimage, tag = "forest")
 
 #create photoimage of forest
-img2 = Image.open('Forest.jpg')
+img2 = Image.open('forest_hole.jpg')
 img2_resize = img2.resize((500, 400), Image.ANTIALIAS)
 tkimage2 = ImageTk.PhotoImage(img2_resize)
 
 
 #create photoimage of rock wall
-img3 = Image.open('rock_wall.jpg')
+img3 = Image.open('spaceship.jpg')
 img3_resize = img3.resize((500,400), Image.ANTIALIAS)
 tkimage3 = ImageTk.PhotoImage(img3_resize)
 
 #create photoimage of dragon defeated
-img4 = Image.open('dragon.jpg')
+img4 = Image.open('scifiending.jpg')
 img4_resize = img4.resize((700,400), Image.ANTIALIAS)
 tkimage4 = ImageTk.PhotoImage(img4_resize)
 
 #forest function that will replace campfire image with forest image within the canvas window
 def forest():
-    canvas.create_image((400,250), image=tkimage2, tag = "forest")
-    canvas.itemconfig("campfire", image=tkimage2)
+    canvas.create_image((400,250), image=tkimage2, tag = "hole")
+    canvas.itemconfig("forest", image=tkimage2)
 
 
 #rock wall function that will replace campfire image with rock image within the canvas window
 def rock_wall():
-    canvas.create_image((400,250), image=tkimage3, tag = "rock")
-    canvas.itemconfig("forest", image=tkimage3)
+    canvas.create_image((400,250), image=tkimage3, tag = "spaceship")
+    canvas.itemconfig("hole", image=tkimage3)
 
 #dragon function that will replace rock wall image with dragon image within the canvas window
 def dragon():
-    canvas.create_image((400,250), image=tkimage4, tag = "dragon")
-    canvas.itemconfig("rock", image=tkimage4)
+    canvas.create_image((400,250), image=tkimage4, tag = "ending")
+    canvas.itemconfig("spaceship", image=tkimage4)
 
 #creating the text widget to display story - wrap set to word will eliminate word cutoffs
 T = Text(win, height = 12, width = 100, wrap=WORD,)
