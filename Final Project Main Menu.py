@@ -64,7 +64,7 @@ mainmenu_image_final.place(x = 0, y = 0)
 #Character Selection Buttons
 cBoy = Button(root, text = "Cowboy",  height=8, width = 50, bg = '#ffca18')
 wizard = Button(root, text = "Wizard", height = 8, width = 50, bg = '#d31212', command=runFantasy)
-astro = Button(root, text = "Astronaut", height = 8, width = 50, bg = '#ffca18', command = runScifi())
+astro = Button(root, text = "Astronaut", height = 8, width = 50, bg = '#ffca18', command = runScifi)
 exit_to_dt = Button(root, text = "Quit to Desktop", height = 5, width = 25, bg = '#00a8f3', command = close)
 
 cBoy.place(x = 25, y = 750)
