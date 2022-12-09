@@ -2,13 +2,8 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
 
-test = "test"
-
 #create window
 win = Tk()
-
-
-
 
 #size of window
 
