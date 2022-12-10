@@ -162,3 +162,5 @@ T.config(state='disabled') #sets text widget to read only
 
 #keeps window displaying
 win.mainloop()
+
+input()

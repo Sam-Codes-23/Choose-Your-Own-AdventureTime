@@ -75,3 +75,5 @@ exit_to_dt.pack(side = BOTTOM)
 
 #Start the GUI
 root.mainloop()
+
+input()
