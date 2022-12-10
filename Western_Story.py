@@ -21,8 +21,8 @@ win.configure(background='light blue')
 l = Label(win, text = "Choose Your Own AdventureTime")
 l.config(font = ("Courier", 14))
 
-#create photoimage of campfire
-img = Image.open('scifi_forest.jpg')
+#create photoimage of Western Town
+img = Image.open('WesternTown.png')
 img_resize = img.resize((500, 400), Image.ANTIALIAS)
 tkimage = ImageTk.PhotoImage(img_resize)
 
@@ -31,19 +31,19 @@ canvas = tk.Canvas(win, width = 800, height = 500)
 canvas.pack()
 canvas.create_image((400,250), image=tkimage, tag = "forest")
 
-#create photoimage of forest
-img2 = Image.open('forest hole.jpg')
+#create photoimage of Western Saloon
+img2 = Image.open('WesternSaloon.png')
 img2_resize = img2.resize((500, 400), Image.ANTIALIAS)
 tkimage2 = ImageTk.PhotoImage(img2_resize)
 
 
-#create photoimage of rock wall
-img3 = Image.open('spaceship.jpg')
+#create photoimage of Western Chase
+img3 = Image.open('WesternChase.png')
 img3_resize = img3.resize((500,400), Image.ANTIALIAS)
 tkimage3 = ImageTk.PhotoImage(img3_resize)
 
-#create photoimage of dragon defeated
-img4 = Image.open('scifiending.jpg')
+#create photoimage of Western Ending
+img4 = Image.open('WesternEnding.png')
 img4_resize = img4.resize((700,400), Image.ANTIALIAS)
 tkimage4 = ImageTk.PhotoImage(img4_resize)
 
@@ -66,7 +66,7 @@ def dragon():
 T = Text(win, height = 12, width = 100, wrap=WORD,)
 T.place(x=0, y=0) #this places the text widget in the window
 
-Western_1_Story = "\"Welcome to the West!\" cried Harry, as he comes to lead your horse into town. You'll be staying at the Ol' corral there. Would you like to pay a little extra to stable your horse? It'll give her a nice roof and some quality hay. Pay to stable your horse or keep it outside?"
+Western_1_Story = "\"Welcome to the West!\" cried Harry, as he comes to lead your horse into town. You'll be staying at the Ol' corral there. Would you like to pay a little extra to stable your horse? It'll give her a nice roof and some quality hay. Pay to stable your horse?"
 Western_2_Story = "You slide into a booth at the local restaurant and order some food. A sleek man with a large moustache and monacle, all dressed in black wants to speak with you. He asks if you would like to be rich beyond your wildest dreams. All you need to do is give him all the money you have and he will give you the keys to a gold mine. Do you give the man all your money?"
 Western_3_Story = "You awake in the night to the sound of shouting from the window. You throw open the shutters to see someone being thrown on the back of a horse by a masked bandit. You could maybe save them if you act fast! Then again, it could put you in a lot of danger. Do you chase them?"
 Western_Good = "Horses, gold, and bandits - some days in the West are full of difficult choices! But you made it through either way. It looks like you were a good citizen today."
@@ -77,15 +77,15 @@ def Option_1 ():
     T.config(state='normal')
     forest()
     T.delete("1.0", END)
-    Next_Line = SciFi_2_Story
+    Next_Line = Western_2_Story
     global Fantasy_Choice #this specifies that the function is changing the global variable and not creating a local variable
     Fantasy_Choice = 1
     b1.after(1, b1.destroy) #destroys button
     b2.after(1, b2.destroy)
     global b3  #creates a global variable to be accessed in other functions
-    b3 = Button(win, text = "Try and jump the gap to save valuable time.", command=Option_3)
+    b3 = Button(win, text = "Yes", command=Option_3)
     global b4 
-    b4 = Button(win, text = "Walk around the gaping chasm and eventually get to the other side", command = Option_3)
+    b4 = Button(win, text = "No", command = Option_3)
     b3.pack() #adds button to the screen
     b4.pack()
     T.insert(tk.END, Next_Line) #inserts the next line to the Text widget
@@ -95,15 +95,15 @@ def Option_2 ():
     T.config(state='normal')
     forest()
     T.delete("1.0", END)
-    Next_Line = SciFi_2_Story
+    Next_Line = Western_2_Story
     global SciFi_Choice 
     Fantasy_Choice = 2
     b1.after(1, b1.destroy)
     b2.after(1, b2.destroy)
     global b3 
-    b3 = Button(win, text = "Try and jump the gap to save valuable time.", command=Option_3)
+    b3 = Button(win, text = "Yes", command=Option_3)
     global b4 
-    b4 = Button(win, text = "Walk around the gaping chasm and eventually get to the other side", command = Option_3)
+    b4 = Button(win, text = "No", command = Option_3)
     b3.pack()
     b4.pack()
     T.insert(tk.END, Next_Line)
@@ -113,13 +113,13 @@ def Option_3 ():
     T.config(state='normal')
     rock_wall()
     T.delete("1.0", END)
-    Next_Line = SciFi_3_Story
+    Next_Line = Western_3_Story
     b3.after(1, b3.destroy)
     b4.after(1, b4.destroy)
     global b5
     global b6
-    b5 = Button(win, text = "Rush towards the ship and see if the diplomat is inside.", command=Option_4)
-    b6 = Button(win, text = "Take your time since you are very weary from your traveling.", command=Option_4)
+    b5 = Button(win, text = "Yes", command=Option_4)
+    b6 = Button(win, text = "No", command=Option_4)
     b5.pack()
     b6.pack()
     T.insert(tk.END, Next_Line)
@@ -130,9 +130,9 @@ def Option_4():
     dragon()
     T.delete("1.0", END)
     if Fantasy_Choice == 1:
-        Next_Line = SciFi_Good
+        Next_Line = Western_Good
     if Fantasy_Choice == 2:
-        Next_Line = SciFi_Bad
+        Next_Line = Western_Bad
     b5.after(1, b5.destroy)
     b6.after(1, b6.destroy)
     T.insert(tk.END, Next_Line)
@@ -140,15 +140,15 @@ def Option_4():
 
 
 
-b1 = Button(win, text = "Stop to help the potentially dangerous creature before continuing on your way", command=Option_1)
-b2 = Button(win, text = "Continue on your way without stopping", command=Option_2)
+b1 = Button(win, text = "Yes", command=Option_1)
+b2 = Button(win, text = "No", command=Option_2)
 
 l.pack()
 T.pack()
 b1.pack()
 b2.pack()
 
-T.insert(tk.END, SciFi_1_Story)
+T.insert(tk.END, Western_1_Story)
 T.config(state='disabled') #sets text widget to read only
 
 
