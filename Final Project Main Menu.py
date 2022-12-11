@@ -32,6 +32,11 @@ def runFantasy():
 def runScifi():
     root.destroy()
     runpy.run_path(path_name = 'SciFi_Story.py')
+    
+#Function to run western story
+def runWestern():
+    root.destroy()
+    runpy.run_path(path_name = 'Western_Story.py')
 
 #Astronaut Image Import
 astro_image_pre = Image.open(astro_path)
@@ -62,7 +67,7 @@ mainmenu_image_final = Label(image = img4)
 mainmenu_image_final.place(x = 0, y = 0)
 
 #Character Selection Buttons
-cBoy = Button(root, text = "Cowboy",  height=8, width = 50, bg = '#ffca18')
+cBoy = Button(root, text = "Cowboy",  height=8, width = 50, bg = '#ffca18', command=runWestern)
 wizard = Button(root, text = "Wizard", height = 8, width = 50, bg = '#d31212', command=runFantasy)
 astro = Button(root, text = "Astronaut", height = 8, width = 50, bg = '#ffca18', command = runScifi)
 exit_to_dt = Button(root, text = "Quit to Desktop", height = 5, width = 25, bg = '#00a8f3', command = close)
